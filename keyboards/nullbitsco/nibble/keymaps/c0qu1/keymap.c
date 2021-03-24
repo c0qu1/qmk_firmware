@@ -15,6 +15,8 @@
  */
 #include QMK_KEYBOARD_H
 
+#include "big_led.h"
+
 enum layer_names {
   _MA,
   _FN
@@ -181,4 +183,15 @@ void matrix_init_user(void) {
 void matrix_scan_user(void) {
   // Scan and parse keystrokes from remote keyboard, if connected (see readme)
   matrix_scan_remote_kb();
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    if (get_highest_layer(state) == _FN) {
+        set_big_LED_rgb(LED_ON, LED_OFF, LED_OFF);
+//    } else if (get_highest_layer(state) == _VIM) {
+//        set_big_led_state(LED_OFF, LED_ON, LED_OFF);
+    } else {
+        set_big_LED_rgb(LED_OFF, LED_OFF, LED_OFF);
+    }
+    return state;
 }
