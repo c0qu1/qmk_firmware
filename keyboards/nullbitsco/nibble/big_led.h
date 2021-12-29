@@ -25,8 +25,11 @@
 #define LED_ON          2
 #define LED_OFF         0
 
-#define GPIO_STATE_LOW  0
-#define GPIO_STATE_HIGH 1
+//#define GPIO_STATE_LOW  0
+//#define GPIO_STATE_HIGH 1
+//Inverted for common anode LED
+#define GPIO_STATE_LOW  1
+#define GPIO_STATE_HIGH 0
 
 void
   set_big_LED_rgb(uint8_t r_mode, uint8_t g_mode, uint8_t b_mode),
