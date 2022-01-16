@@ -162,15 +162,8 @@ void render_keylock_status(uint8_t led_usb_state) {
 
 void render_matrix_scan_rate(void) {
 #ifdef DEBUG_MATRIX_SCAN_RATE
-    char     matrix_rate[5];
-    uint16_t n     = get_matrix_scan_rate();
-    matrix_rate[4] = '\0';
-    matrix_rate[3] = '0' + n % 10;
-    matrix_rate[2] = (n /= 10) % 10 ? '0' + (n) % 10 : (n / 10) % 10 ? '0' : ' ';
-    matrix_rate[1] = n / 10 ? '0' + n / 10 : ' ';
-    matrix_rate[0] = ' ';
     oled_write_P(PSTR("MS:"), false);
-    oled_write(matrix_rate, false);
+    oled_write(get_u16_str(get_matrix_scan_rate(), ' '), false);
 #endif
 }
 
@@ -348,9 +341,8 @@ void render_wpm(uint8_t padding) {
 #endif
 }
 
-#if defined(KEYBOARD_handwired_tractyl_manuform) || defined(KEYBOARD_bastardkb_charybdis)
-extern kb_config_data_t kb_config;
-void                    render_pointing_dpi_status(uint8_t padding) {
+#if defined(POINTING_DEVICE_ENABLE)
+void render_pointing_dpi_status(uint16_t cpi, uint8_t padding) {
     oled_write_P(PSTR("CPI:"), false);
     if (padding) {
         for (uint8_t n = padding - 1; n > 0; n--) {
@@ -358,7 +350,7 @@ void                    render_pointing_dpi_status(uint8_t padding) {
         }
     }
 
-    oled_write(get_u16_str(kb_config.device_cpi, ' '), false);
+    oled_write(get_u16_str(cpi, ' '), false);
 }
 #endif
 
@@ -381,8 +373,10 @@ __attribute__((weak)) void oled_driver_render_logo_left(void) {
     render_wpm(0);
 #    endif
     oled_write_P(PSTR("  "), false);
-#    if defined(KEYBOARD_handwired_tractyl_manuform) || defined(KEYBOARD_bastardkb_charybdis)
-    render_pointing_dpi_status(1);
+#    if defined(KEYBOARD_handwired_tractyl_manuform)
+    render_pointing_dpi_status(kb_config_data.device_cpi, 1);
+#    elif defined(KEYBOARD_bastardkb_charybdis)
+    render_pointing_dpi_status(, 1);
 #    endif
     oled_set_cursor(0, 4);
 #else
