@@ -2,7 +2,7 @@
     "keyboard_name": "ey191",
     "url": "",
     "maintainer": "c0qu1",
-    "LAYOUT": {
+    "LAYOUT_ansi65x": {
         "layout": [
             {"x":0, "y":0},
             {"x":1, "y":0},
