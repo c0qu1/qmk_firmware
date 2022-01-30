@@ -26,8 +26,8 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { A9, B13, B0, A6, A7, A8 }
-#define MATRIX_COL_PINS { B14, B15, B9, B10, B11, B12, A14, A13, B1, B2, B3, B4, B5, B6, B7, A10 }
+#define MATRIX_ROW_PINS { A9, B9, B0, A8, A7, A6 }
+#define MATRIX_COL_PINS { A10, B7, B6, B5, B4, B3, B2, B1, A13, A14, B12, B11, B10, B15, B14, B13 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL */
@@ -48,7 +48,7 @@
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
 
-#define RGB_DI_PIN B8
+#define RGB_DI_PIN A2
 #ifdef RGB_DI_PIN
 #define RGBLED_NUM 3
 //#    define RGBLIGHT_HUE_STEP 8
@@ -146,7 +146,7 @@
 //#define AUDIO_CLICKY
 
 /* Rotary Encoder https://docs.qmk.fm/#/feature_encoders?id=encoders */
-#define ENCODERS_PAD_A { A2, A0 }
-#define ENCODERS_PAD_B { A1, A1 }
-//#define ENCODER_DIRECTION_FLIP
+#define ENCODERS_PAD_A { A1, A0 }
+#define ENCODERS_PAD_B { B8, B8 }
+#define ENCODER_DIRECTION_FLIP
 //#define ENCODER_RESOLUTIONS { 4, 2 }
