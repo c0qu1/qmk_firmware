@@ -39,6 +39,7 @@
  * | R4    |       | LSft  | z     | x     | c     | v     | b     | n     | m     | ,     | .     | Slsh  |       | RSft  | Up    | PGDN  | A7    |
  * | R5    | Ctrl  | Menu  |       | Alt   |       |       | Space |       |       |       | Fn    | RAlt  | RCtl  | Left  | Down  | Right | A6    |
  * | Pins  | A10   | B7    | B6    | B5    | B4    | B3    | B2    | B1    | A13   | A14   | B12   | B11   | B10   | B15   | B14   | B13   |       |
+ */
 
 
 /* COL2ROW, ROW2COL */
