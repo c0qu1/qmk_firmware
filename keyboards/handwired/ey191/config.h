@@ -150,6 +150,7 @@
 //#define BOOTMAGIC_LITE_COLUMN 0
 
 /* Audio output configuration */
+#define QMK_SPEAKER A5
 #define AUDIO_PIN A5
 #define AUDIO_PIN_ALT A4
 #define AUDIO_PIN_ALT_AS_NEGATIVE

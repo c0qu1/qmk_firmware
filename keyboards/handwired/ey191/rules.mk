@@ -19,4 +19,5 @@ RGBLIGHT_ENABLE = yes        # Enable keyboard RGB underglow
 AUDIO_ENABLE = yes           # Audio output
 AUDIO_DRIVER = dac_basic
 ENCODER_ENABLE = yes        # Use rotary encoder
-VIA_ENABLE = yes
+#VIA_ENABLE = yes
+FAUXCLICKY_ENABLE = yes      # Use buzzer to emulate clicky switches
