@@ -29,6 +29,16 @@
 #define MATRIX_ROW_PINS { A9, B9, B0, A8, A7, A6 }
 #define MATRIX_COL_PINS { A10, B7, B6, B5, B4, B3, B2, B1, A13, A14, B12, B11, B10, B15, B14, B13 }
 #define UNUSED_PINS
+/* | Rows  | C0    | C1    | C2    | C3    | C4    | C5    | C6    | C7    | C8    | C9    | C10   | C11   | C12   | C13   | C14   | C15   | Pins  |
+ * | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+ * | R0    | F11   | F12   | F13   | F14   | F15   |       |       |       |       |       |       | F16   |       |       | F17   | F18   | A9    |
+ * | R1    | Esc   | 1     | 2     | 3     | 4     | 5     | 6     | 7     | 8     | 9     | 0     | -     | =     |       | Bksp  | Home  | B9    |
+ * | R2    | Tab   |       | q     | w     | e     | r     | t     | y     | u     | i     | o     | p     | [     | ]     | BSls  | Del   | B0    |
+ * | R3    | Caps  |       | a     | s     | d     | f     | g     | h     | j     | k     | l     | ;     | '     | Enter |       | PGUP  | A8    |
+ * | R4    |       | LSft  | z     | x     | c     | v     | b     | n     | m     | ,     | .     | Slsh  |       | RSft  | Up    | PGDN  | A7    |
+ * | R5    | Ctrl  | Menu  |       | Alt   |       |       | Space |       |       |       | Fn    | RAlt  | RCtl  | Left  | Down  | Right | A6    |
+ * | Pins  | A10   | B7    | B6    | B5    | B4    | B3    | B2    | B1    | A13   | A14   | B12   | B11   | B10   | B15   | B14   | B13   |       |
+
 
 /* COL2ROW, ROW2COL */
 #define DIODE_DIRECTION COL2ROW
