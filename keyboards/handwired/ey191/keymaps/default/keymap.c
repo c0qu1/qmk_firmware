@@ -41,8 +41,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),
 
      [_VIA3] = LAYOUT_ansi65x(
-       _______, _______, _______, _______, _______,                                                       _______,                   _______, _______,
-       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+       _______, _______, _______, _______, _______,                                                       RGB_TOG,                   CK_TOGG, _______,
+       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          CK_RST,  _______,
        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______,
@@ -81,15 +81,30 @@ void change_RGB(bool clockwise) {
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) { /* First encoder */
-        if (clockwise) {
-            tap_code_delay(KC_VOLU, 10);
-        } else {
-            tap_code_delay(KC_VOLD, 10);
-        }
-    } else if (index == 1) { /* Second encoder */
-        //change RGB settings
-        change_RGB(clockwise);
+    switch (biton32(layer_state))
+    {
+        case _BASE:
+            if (index == 0) { /* First encoder */
+                clockwise ? tap_code(KC_VOLU) : tap_code(KC_VOLD);
+            } else if (index == 1) { /* Second encoder */
+                register_code(KC_LCTRL);
+                clockwise ? tap_code(KC_PGDOWN) : tap_code(KC_PGUP);
+                unregister_code(KC_LCTRL);
+            }
+            break;
+        case _VIA1:
+            //nothing
+            break;
+        case _VIA2:
+            //nothing
+            break;
+        case _VIA3:
+            if (index == 0) { /* First encoder */
+                change_RGB(clockwise);
+            } else if (index == 1) { /* Second encoder */
+                clockwise ? tap_code16(CK_UP) : tap_code16(CK_DOWN);
+            }
+            break;
     }
-    return false;
+    return true;
 }

@@ -6,11 +6,12 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID    0xFEED
-#define PRODUCT_ID   0x0000
+#define VENDOR_ID    0x6330
+#define PRODUCT_ID   0x0469
 #define DEVICE_VER   0x0001
 #define MANUFACTURER c0qu1
 #define PRODUCT      ey191
+#define DESCRIPTION  Handwired 65% Keyboard with top row containing 6 macro keys, 2 Rotary Encoders and 3 RGB Indicators
 
 /* key matrix size */
 #define MATRIX_ROWS 6
@@ -153,7 +154,7 @@
 #define AUDIO_PIN_ALT_AS_NEGATIVE
 //#define AUDIO_DAC_SAMPLE_MAX 4095U // Value to adjust the volume of DAC
 /* https://docs.qmk.fm/#/feature_audio?id=audio-click */
-//#define AUDIO_CLICKY
+#define AUDIO_CLICKY
 
 /* Rotary Encoder https://docs.qmk.fm/#/feature_encoders?id=encoders */
 #define ENCODERS_PAD_A { A1, A0 }
