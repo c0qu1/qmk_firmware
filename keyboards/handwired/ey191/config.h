@@ -63,10 +63,11 @@
 #define RGB_DI_PIN A2
 #ifdef RGB_DI_PIN
 #define RGBLED_NUM 3
+#define RGBLIGHT_LED_MAP { 2, 1, 0 }
 //#    define RGBLIGHT_HUE_STEP 8
 //#    define RGBLIGHT_SAT_STEP 8
 //#    define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 128 /* The maximum brightness level */
+#define RGBLIGHT_LIMIT_VAL 64 /* The maximum brightness level */
 #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
 #define RGBLIGHT_ANIMATIONS
@@ -86,6 +87,9 @@
 /*==== use exp() and sin() ====*/
 //#    define RGBLIGHT_EFFECT_BREATHE_CENTER 1.85  // 1 to 2.7
 //#    define RGBLIGHT_EFFECT_BREATHE_MAX    255   // 0 to 255
+#define RGBLIGHT_LAYERS
+#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
+#define RGBLIGHT_LAYERS_RETAIN_VAL
 #endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
@@ -163,3 +167,5 @@
 #define ENCODERS_PAD_B { B8, B8 }
 #define ENCODER_DIRECTION_FLIP
 //#define ENCODER_RESOLUTIONS { 4, 2 }
+
+#define TAPPING_TOGGLE 3
