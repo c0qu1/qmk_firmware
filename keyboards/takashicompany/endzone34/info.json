@@ -1,7 +1,23 @@
 {
     "keyboard_name": "EndZone34",
+    "manufacturer": "takashicompany",
     "url": "https://github.com/takashicompany/endzone34",
     "maintainer": "takashicompany",
+    "usb": {
+        "vid": "0x7463",
+        "pid": "0x0006",
+        "device_version": "0.0.1"
+    },
+    "ws2812": {
+        "pin": "D3"
+    },
+    "matrix_pins": {
+        "cols": ["F4", "F5", "F6", "F7", "B1", "D4", "C6", "D7", "E6", "B4"],
+        "rows": ["B3", "B2", "B6", "B5"]
+    },
+    "diode_direction": "COL2ROW",
+    "processor": "atmega32u4",
+    "bootloader": "caterina",
     "layouts": {
         "LAYOUT": {
             "layout": [

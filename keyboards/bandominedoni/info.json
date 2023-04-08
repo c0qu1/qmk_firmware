@@ -1,7 +1,33 @@
 {
     "keyboard_name": "bandominedoni",
+    "manufacturer": "3araht",
     "url": "https://github.com/3araht",
     "maintainer": "3araht",
+    "usb": {
+        "vid": "0xFEED",
+        "pid": "0xF4B5",
+        "device_version": "0.0.1"
+    },
+    "matrix_pins": {
+        "cols": ["D1", "E6", "F7", "B1", "B3", "B2", "D0"],
+        "rows": ["B5", "B4", "D7", "F6", "C6", "D4"]
+    },
+    "diode_direction": "COL2ROW",
+    "split": {
+        "soft_serial_pin": "D2",
+        "encoder": {
+            "right": {
+                "rotary": [
+                    {"pin_a": "F5", "pin_b": "F4"}
+                ]
+            }
+        }
+    },
+    "ws2812": {
+        "pin": "D3"
+    },
+    "processor": "atmega32u4",
+    "bootloader": "caterina",
     "layouts": {
         "LAYOUT": {
             "layout": [
@@ -58,9 +84,6 @@
                 {"label": "r12", "x": 13, "y": 1},
                 {"label": "r13", "x": 14, "y": 1},
                 {"label": "r14", "x": 15, "y": 1},
-
-                {"label": "ccw", "x": 16.5, "y": 1},
-                {"label": "cw", "x": 17.5, "y": 1},
 
                 {"label": "r20", "x": 10.5, "y": 2},
                 {"label": "r21", "x": 11.5, "y": 2},

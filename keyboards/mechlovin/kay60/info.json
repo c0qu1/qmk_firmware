@@ -1,7 +1,26 @@
 {
-    "keyboard_name": "kay60",
+    "keyboard_name": "Kay60",
+    "manufacturer": "Mechlovin Studio",
     "url": "",
     "maintainer": "Mechlovin' Studio",
+    "usb": {
+        "vid": "0x4D4C",
+        "pid": "0x0601",
+        "device_version": "0.0.1"
+    },
+    "matrix_pins": {
+        "cols": ["E6", "F0", "F1", "F4", "F5", "F6", "F7", "B2", "B3", "B7", "B4", "D7", "D6", "D4"],
+        "rows": ["D5", "D3", "D2", "B1", "B5"]
+    },
+    "diode_direction": "COL2ROW",
+    "indicators": {
+        "caps_lock": "B0"
+    },
+    "ws2812": {
+        "pin": "E2"
+    },
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
     "layouts": {
         "LAYOUT_all": {
             "layout": [
@@ -74,7 +93,7 @@
                 {"x": 13.75, "y": 4, "w": 1.25}
             ]
         },
-        "LAYOUT_ansi": {
+        "LAYOUT_60_ansi": {
             "layout": [
                 {"x": 0, "y": 0},
                 {"x": 1, "y": 0},

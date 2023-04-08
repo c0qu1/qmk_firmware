@@ -1,7 +1,23 @@
 {
-  "keyboard_name": "Training Wheel 40",
+  "keyboard_name": "TW40",
+  "manufacturer": "KnoblesseOblige",
   "url": "https://p3dstore.com/products/tw40-gb",
   "maintainer": "KnoblesseOblige",
+  "usb": {
+    "vid": "0x503D",
+    "pid": "0x5457",
+    "device_version": "0.0.1"
+  },
+  "ws2812": {
+    "pin": "E6"
+  },
+  "matrix_pins": {
+    "cols": ["F0", "F1", "F4", "F5", "F6", "F7", "C7", "C6", "B6", "B5", "B4", "D7", "D6", "D4"],
+    "rows": ["B0", "D5", "D3", "D2"]
+  },
+  "diode_direction": "COL2ROW",
+  "processor": "atmega32u4",
+  "bootloader": "atmel-dfu",
   "layouts": {
     "LAYOUT_all": {
       "layout": [

@@ -63,9 +63,11 @@ MSG_COMPILING_CXX = Compiling:
 MSG_ASSEMBLING = Assembling:
 MSG_CLEANING = Cleaning project:
 MSG_CREATING_LIBRARY = Creating library:
+MSG_GENERATING = Generating:
+MSG_NOT_REPO = $(WARN_COLOR)WARNING:$(NO_COLOR) Target folder is not a git repo, you probably downloaded a zip file instead of cloning.\n\
+Please consider following $(BOLD)https://docs.qmk.fm/\#/newbs_getting_started$(NO_COLOR).\n\n
 MSG_SUBMODULE_DIRTY = $(WARN_COLOR)WARNING:$(NO_COLOR) Some git submodules are out of date or modified.\n\
-Please consider running $(BOLD)make git-submodule$(NO_COLOR).\n\n
-MSG_NO_CMP = $(ERROR_COLOR)Error:$(NO_COLOR)$(BOLD) cmp command not found, please install diffutils\n$(NO_COLOR)
+Please consider running $(BOLD)qmk git-submodule$(NO_COLOR).\n\n
 
 define GENERATE_MSG_MAKE_KB
     MSG_MAKE_KB_ACTUAL := Making $$(KB_SP) with keymap $(BOLD)$$(CURRENT_KM)$(NO_COLOR)
@@ -101,3 +103,8 @@ MSG_FLASH_ARCH = $(WARN_COLOR)WARNING:$(NO_COLOR) This board's architecture is n
 MSG_BOOTLOADER_NOT_FOUND = $(ERROR_COLOR)ERROR:$(NO_COLOR) $(MSG_BOOTLOADER_NOT_FOUND_BASE) Trying again in 5s (Ctrl+C to cancel)\n
 BOOTLOADER_RETRY_TIME ?= 0.5
 MSG_BOOTLOADER_NOT_FOUND_QUICK_RETRY = $(MSG_BOOTLOADER_NOT_FOUND_BASE) Trying again every $(BOOTLOADER_RETRY_TIME)s (Ctrl+C to cancel)
+
+define CATASTROPHIC_ERROR
+    $(shell printf "\n * %-99s $(ERROR_STRING)\n" "$2" >&2)
+    $(error $1)
+endef

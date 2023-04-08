@@ -14,9 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "keymap_common.h"
 #include "print.h"
 #include "process_combo.h"
 #include "action_tapping.h"
+#include "action.h"
 
 #ifdef COMBO_COUNT
 __attribute__((weak)) combo_t key_combos[COMBO_COUNT];
@@ -28,34 +30,52 @@ extern uint16_t COMBO_LEN;
 
 __attribute__((weak)) void process_combo_event(uint16_t combo_index, bool pressed) {}
 
+#ifndef COMBO_ONLY_FROM_LAYER
+__attribute__((weak)) uint8_t combo_ref_from_layer(uint8_t layer) {
+    return layer;
+}
+#endif
+
 #ifdef COMBO_MUST_HOLD_PER_COMBO
-__attribute__((weak)) bool get_combo_must_hold(uint16_t index, combo_t *combo) { return false; }
+__attribute__((weak)) bool get_combo_must_hold(uint16_t index, combo_t *combo) {
+    return false;
+}
 #endif
 
 #ifdef COMBO_MUST_TAP_PER_COMBO
-__attribute__((weak)) bool get_combo_must_tap(uint16_t index, combo_t *combo) { return false; }
+__attribute__((weak)) bool get_combo_must_tap(uint16_t index, combo_t *combo) {
+    return false;
+}
 #endif
 
 #ifdef COMBO_TERM_PER_COMBO
-__attribute__((weak)) uint16_t get_combo_term(uint16_t index, combo_t *combo) { return COMBO_TERM; }
+__attribute__((weak)) uint16_t get_combo_term(uint16_t index, combo_t *combo) {
+    return COMBO_TERM;
+}
 #endif
 
 #ifdef COMBO_MUST_PRESS_IN_ORDER_PER_COMBO
-__attribute__((weak)) bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) { return true; }
+__attribute__((weak)) bool get_combo_must_press_in_order(uint16_t combo_index, combo_t *combo) {
+    return true;
+}
 #endif
 
 #ifdef COMBO_PROCESS_KEY_RELEASE
-__attribute__((weak)) bool process_combo_key_release(uint16_t combo_index, combo_t *combo, uint8_t key_index, uint16_t keycode) { return false; }
+__attribute__((weak)) bool process_combo_key_release(uint16_t combo_index, combo_t *combo, uint8_t key_index, uint16_t keycode) {
+    return false;
+}
 #endif
 
 #ifdef COMBO_SHOULD_TRIGGER
-__attribute__((weak)) bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) { return true; }
+__attribute__((weak)) bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    return true;
+}
 #endif
 
 #ifndef COMBO_NO_TIMER
 static uint16_t timer = 0;
 #endif
-static bool     b_combo_enable = true;  // defaults to enabled
+static bool     b_combo_enable = true; // defaults to enabled
 static uint16_t longest_term   = 0;
 
 typedef struct {
@@ -74,8 +94,6 @@ static uint8_t        combo_buffer_read  = 0;
 static queued_combo_t combo_buffer[COMBO_BUFFER_LENGTH];
 
 #define INCREMENT_MOD(i) i = (i + 1) % COMBO_BUFFER_LENGTH
-
-#define COMBO_KEY_POS ((keypos_t){.col = 254, .row = 254})
 
 #ifndef EXTRA_SHORT_COMBOS
 /* flags are their own elements in combo_t struct. */
@@ -127,12 +145,7 @@ static queued_combo_t combo_buffer[COMBO_BUFFER_LENGTH];
 static inline void release_combo(uint16_t combo_index, combo_t *combo) {
     if (combo->keycode) {
         keyrecord_t record = {
-            .event =
-                {
-                    .key     = COMBO_KEY_POS,
-                    .time    = timer_read() | 1,
-                    .pressed = false,
-                },
+            .event   = MAKE_COMBOEVENT(false),
             .keycode = combo->keycode,
         };
 #ifndef NO_ACTION_TAPPING
@@ -193,6 +206,9 @@ void clear_combos(void) {
 static inline void dump_key_buffer(void) {
     /* First call start from 0 index; recursive calls need to start from i+1 index */
     static uint8_t key_buffer_next = 0;
+#if TAP_CODE_DELAY > 0
+    bool delay_done = false;
+#endif
 
     if (key_buffer_size == 0) {
         return;
@@ -217,7 +233,25 @@ static inline void dump_key_buffer(void) {
             process_record(record);
 #endif
         }
-        record->event.time = 0;
+        record->event.type = TICK_EVENT;
+
+#if defined(CAPS_WORD_ENABLE) && defined(AUTO_SHIFT_ENABLE)
+        // Edge case: preserve the weak Left Shift mod if both Caps Word and
+        // Auto Shift are on. Caps Word capitalizes by setting the weak Left
+        // Shift mod during the press event, but Auto Shift doesn't send the
+        // key until it receives the release event.
+        del_weak_mods((is_caps_word_on() && get_autoshift_state()) ? ~MOD_BIT(KC_LSFT) : 0xff);
+#else
+        clear_weak_mods();
+#endif // defined(CAPS_WORD_ENABLE) && defined(AUTO_SHIFT_ENABLE)
+
+#if TAP_CODE_DELAY > 0
+        // only delay once and for a non-tapping key
+        if (!delay_done && !is_tap_record(record)) {
+            delay_done = true;
+            wait_ms(TAP_CODE_DELAY);
+        }
+#endif
     }
 
     key_buffer_next = key_buffer_size = 0;
@@ -277,7 +311,7 @@ void apply_combo(uint16_t combo_index, combo_t *combo) {
 #if defined(EXTRA_EXTRA_LONG_COMBOS)
     uint32_t state = 0;
 #elif defined(EXTRA_LONG_COMBOS)
-    uint16_t state = 0;
+    uint16_t state         = 0;
 #else
     uint8_t state = 0;
 #endif
@@ -299,8 +333,8 @@ void apply_combo(uint16_t combo_index, combo_t *combo) {
         KEY_STATE_DOWN(state, key_index);
         if (ALL_COMBO_KEYS_ARE_DOWN(state, key_count)) {
             // this in the end executes the combo when the key_buffer is dumped.
-            record->keycode   = combo->keycode;
-            record->event.key = COMBO_KEY_POS;
+            record->keycode    = combo->keycode;
+            record->event.type = COMBO_EVENT;
 
             qrecord->combo_index = combo_index;
             ACTIVATE_COMBO(combo);
@@ -309,7 +343,7 @@ void apply_combo(uint16_t combo_index, combo_t *combo) {
         } else {
             // key was part of the combo but not the last one, "disable" it
             // by making it a TICK event.
-            record->event.time = 0;
+            record->event.type = TICK_EVENT;
         }
     }
     drop_combo_from_buffer(combo_index);
@@ -449,7 +483,7 @@ static bool process_single_combo(combo_t *combo, uint16_t keycode, keyrecord_t *
                     // get possible longer waiting time for tap-/hold-only combos.
                     longest_term = _get_wait_time(combo_index, combo);
                 }
-            }  // if timer elapsed end
+            } // if timer elapsed end
         }
     } else {
         // chord releases
@@ -464,7 +498,7 @@ static bool process_single_combo(combo_t *combo, uint16_t keycode, keyrecord_t *
             else if (get_combo_must_tap(combo_index, combo)) {
                 // immediately apply tap-only combo
                 apply_combo(combo_index, combo);
-                apply_combos();  // also apply other prepared combos and dump key buffer
+                apply_combos(); // also apply other prepared combos and dump key buffer
 #    ifdef COMBO_PROCESS_KEY_RELEASE
                 if (process_combo_key_release(combo_index, combo, key_index, keycode)) {
                     release_combo(combo_index, combo);
@@ -504,17 +538,17 @@ bool process_combo(uint16_t keycode, keyrecord_t *record) {
     bool is_combo_key          = false;
     bool no_combo_keys_pressed = true;
 
-    if (keycode == CMB_ON && record->event.pressed) {
+    if (keycode == QK_COMBO_ON && record->event.pressed) {
         combo_enable();
         return true;
     }
 
-    if (keycode == CMB_OFF && record->event.pressed) {
+    if (keycode == QK_COMBO_OFF && record->event.pressed) {
         combo_disable();
         return true;
     }
 
-    if (keycode == CMB_TOG && record->event.pressed) {
+    if (keycode == QK_COMBO_TOGGLE && record->event.pressed) {
         combo_toggle();
         return true;
     }
@@ -522,6 +556,12 @@ bool process_combo(uint16_t keycode, keyrecord_t *record) {
 #ifdef COMBO_ONLY_FROM_LAYER
     /* Only check keycodes from one layer. */
     keycode = keymap_key_to_keycode(COMBO_ONLY_FROM_LAYER, record->event.key);
+#else
+    uint8_t  highest_layer = get_highest_layer(layer_state);
+    uint8_t  ref_layer     = combo_ref_from_layer(highest_layer);
+    if (ref_layer != highest_layer) {
+        keycode = keymap_key_to_keycode(ref_layer, record->event.key);
+    }
 #endif
 
     for (uint16_t idx = 0; idx < COMBO_LEN; ++idx) {
@@ -546,7 +586,7 @@ bool process_combo(uint16_t keycode, keyrecord_t *record) {
             key_buffer[key_buffer_size++] = (queued_record_t){
                 .record      = *record,
                 .keycode     = keycode,
-                .combo_index = -1,  // this will be set when applying combos
+                .combo_index = -1, // this will be set when applying combos
             };
         }
     } else {
@@ -585,7 +625,9 @@ void combo_task(void) {
 #endif
 }
 
-void combo_enable(void) { b_combo_enable = true; }
+void combo_enable(void) {
+    b_combo_enable = true;
+}
 
 void combo_disable(void) {
 #ifndef COMBO_NO_TIMER
@@ -605,4 +647,6 @@ void combo_toggle(void) {
     }
 }
 
-bool is_combo_enabled(void) { return b_combo_enable; }
+bool is_combo_enabled(void) {
+    return b_combo_enable;
+}

@@ -1,7 +1,23 @@
     {
-        "keyboard_name": "cb87v2",
+        "keyboard_name": "CB87RGB",
+        "manufacturer": "CherryB.Studio",
         "url": "https://discord.gg/qVwv3gcq83",
         "maintainer": "duongaanh",
+    "usb": {
+        "vid": "0x4342",
+        "pid": "0x8785",
+        "device_version": "0.0.1"
+    },
+    "ws2812": {
+        "pin": "E6"
+    },
+    "matrix_pins": {
+        "cols": ["D5", "D4", "D6", "D7", "B4", "B5", "F5", "C6", "C7", "F7"],
+        "rows": ["B0", "B1", "B2", "B3", "B7", "D0", "D1", "D2", "D3", "F6"]
+    },
+    "diode_direction": "COL2ROW",
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
         "layouts": {
             "LAYOUT_all": {
                 "layout": [

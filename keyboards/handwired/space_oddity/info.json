@@ -1,7 +1,20 @@
 {
   "keyboard_name": "Space Oddity",
+  "manufacturer": "James Taylor",
   "url": "",
   "maintainer": "qmk",
+  "usb": {
+    "vid": "0xFEED",
+    "pid": "0x6060",
+    "device_version": "0.0.1"
+  },
+  "matrix_pins": {
+    "cols": ["B2", "B6", "B5", "B4", "E6", "D7", "C6", "D4", "D0", "D1", "D2", "D3"],
+    "rows": ["F4", "F5", "F6", "F7", "B1", "B3"]
+  },
+  "diode_direction": "COL2ROW",
+  "processor": "atmega32u4",
+  "bootloader": "caterina",
   "layouts": {
     "LAYOUT": {
       "layout": [

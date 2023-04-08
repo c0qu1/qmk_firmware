@@ -1,7 +1,23 @@
 {
-  "keyboard_name": "Schwann's PCB",
+  "keyboard_name": "The Schwann PCB",
+  "manufacturer": "TheRoyalSweatshirt",
   "url": "https://github.com/TheRoyalSweatshirt/The_Royal_Projects/tree/schwann/PCBs/Schwann_PCB",
   "maintainer": "TheRoyalSweatshirt",
+  "usb": {
+      "vid": "0xFEED",
+      "pid": "0x3521",
+      "device_version": "0.0.1"
+  },
+  "ws2812": {
+    "pin": "B3"
+  },
+  "matrix_pins": {
+    "cols": ["F4", "F5", "D5", "D3", "D2", "C6", "B6", "B5", "B4", "D7", "D6", "D1"],
+    "rows": ["F0", "F1", "F6", "C7"]
+  },
+  "diode_direction": "COL2ROW",
+  "processor": "atmega32u4",
+  "bootloader": "atmel-dfu",
   "layouts": {
    "LAYOUT_mit": {
       "layout": [

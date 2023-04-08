@@ -1,7 +1,27 @@
 {
-    "keyboard_name": "lm60n",
+    "keyboard_name": "L+M 60N",
+    "manufacturer": "L+M Keyboard",
     "url": "",
     "maintainer": "gkeyboard",
+    "usb": {
+        "vid": "0x4C4D",
+        "pid": "0x4B01",
+        "device_version": "0.0.1"
+    },
+    "matrix_pins": {
+        "cols": ["B4", "D7", "D6", "D4", "D5", "D3", "D2", "D1", "D0", "C6", "B6", "B5", "F4", "F0", "E6"],
+        "rows": ["F1", "F5", "F6", "F7", "B3", "B2", "B1"]
+    },
+    "diode_direction": "COL2ROW",
+    "indicators": {
+        "caps_lock": "C7",
+        "num_lock": "B7"
+    },
+    "ws2812": {
+        "pin": "B0"
+    },
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
     "layouts": {
         "LAYOUT_ansi": {
             "layout": [

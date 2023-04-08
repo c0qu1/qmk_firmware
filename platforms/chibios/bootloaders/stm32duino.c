@@ -18,4 +18,11 @@
 
 #include <ch.h>
 
-__attribute__((weak)) void bootloader_jump(void) { NVIC_SystemReset(); }
+__attribute__((weak)) void bootloader_jump(void) {
+    NVIC_SystemReset();
+}
+
+__attribute__((weak)) void mcu_reset(void) {
+    BKP->DR10 = RTC_BOOTLOADER_JUST_UPLOADED;
+    NVIC_SystemReset();
+}

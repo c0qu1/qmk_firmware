@@ -1,7 +1,26 @@
 {
   "keyboard_name": "Ergoinu",
+  "manufacturer": "Dm9Records",
   "url": "",
   "maintainer": "hsgw(Takuya Urakawa)",
+  "usb": {
+    "vid": "0x04D8",
+    "pid": "0xEE60",
+    "device_version": "0.0.1"
+  },
+  "matrix_pins": {
+    "cols": ["B4", "E6", "D7", "C6", "D4", "F5", "F4"],
+    "rows": ["F6", "F7", "B1", "B3", "B2"]
+  },
+  "diode_direction": "COL2ROW",
+  "split": {
+    "soft_serial_pin": "D2"
+  },
+  "ws2812": {
+    "pin": "B6"
+  },
+  "processor": "atmega32u4",
+  "bootloader": "caterina",
   "layouts": {
     "LAYOUT": {
       "layout": [

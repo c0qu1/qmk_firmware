@@ -1,7 +1,30 @@
 {
     "keyboard_name": "S7 Elephant Rev2",
+    "manufacturer": "Jacky",
     "url": "https://geekhack.org/index.php?topic=103148.0",
     "maintainer": "qmk",
+    "usb": {
+        "vid": "0xA13B",
+        "pid": "0x0008",
+        "device_version": "0.0.2"
+    },
+    "matrix_pins": {
+        "cols": ["D0", "D1", "D2", "D3", "D5", "D4", "D6", "D7", "B4", "F7", "F6", "F5", "F4", "F1", "F0", "E6"],
+        "rows": ["B0", "B1", "B2", "B3", "B7"]
+    },
+    "ws2812": {
+        "pin": "E2"
+    },
+    "diode_direction": "ROW2COL",
+    "backlight": {
+        "pin": "B6",
+        "levels": 15
+    },
+    "bootmagic": {
+        "matrix": [0, 15]
+    },
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
     "layouts": {
         "LAYOUT_all": {
             "layout": [

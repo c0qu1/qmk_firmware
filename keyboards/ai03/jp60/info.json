@@ -1,7 +1,20 @@
 {
     "keyboard_name": "JP60",
+    "manufacturer": "ai03 Design Studio",
     "url": "https://github.com/ai03-2725/JP60",
     "maintainer": "ai03",
+    "usb": {
+        "vid": "0xA103",
+        "pid": "0x0024",
+        "device_version": "0.0.1"
+    },
+    "matrix_pins": {
+        "cols": ["D2", "D1", "D3", "D5", "D4", "D6", "C6", "F0", "F1", "F4", "F5", "F6", "F7", "C7"],
+        "rows": ["B6", "B5", "B4", "D7", "E6"]
+    },
+    "diode_direction": "COL2ROW",
+    "processor": "atmega32u4",
+    "bootloader": "atmel-dfu",
     "layouts": {
         "LAYOUT": {
             "layout": [

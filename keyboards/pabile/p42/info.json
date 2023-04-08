@@ -1,7 +1,20 @@
 {
     "keyboard_name": "P42", 
+    "manufacturer": "Pabile",
     "url": "https://pabileonline.blogspot.com/", 
     "maintainer": "Pabile", 
+    "usb": {
+        "vid": "0x6666",
+        "pid": "0x6670",
+        "device_version": "0.0.1"
+    },
+    "matrix_pins": {
+        "cols": ["D7", "E6", "B4", "B5", "D2", "D3", "F7", "B1", "B3", "B2", "B6"],
+        "rows": ["D1", "D0", "D4", "C6"]
+    },
+    "diode_direction": "COL2ROW",
+    "processor": "atmega32u4",
+    "bootloader": "caterina",
     "layouts": {
         "LAYOUT": {
             "layout": [
