@@ -3,15 +3,13 @@
 
 #pragma once
 
-#include "config_common.h"
-
-/* USB Device descriptor parameter */
-#define VENDOR_ID    0x6330
-#define PRODUCT_ID   0x0469
-#define DEVICE_VER   0x0001
-#define MANUFACTURER c0qu1
-#define PRODUCT      ey191
-#define DESCRIPTION  Handwired 65% Keyboard with top row containing 6 macro keys, 2 Rotary Encoders and 3 RGB Indicators
+///* USB Device descriptor parameter */
+//#define VENDOR_ID    0x6330
+//#define PRODUCT_ID   0x0469
+//#define DEVICE_VER   0x0001
+//#define MANUFACTURER c0qu1
+//#define PRODUCT      ey191
+//#define DESCRIPTION  Handwired 65% Keyboard with top row containing 6 macro keys, 2 Rotary Encoders and 3 RGB Indicators
 
 /* key matrix size */
 #define MATRIX_ROWS 6
@@ -60,8 +58,8 @@
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
 
-#define RGB_DI_PIN A2
-#ifdef RGB_DI_PIN
+#define WS2812_DI_PIN A2
+#ifdef WS2812_DI_PIN
 #define RGBLED_NUM 3
 #define RGBLIGHT_LED_MAP { 2, 1, 0 }
 //#    define RGBLIGHT_HUE_STEP 8
