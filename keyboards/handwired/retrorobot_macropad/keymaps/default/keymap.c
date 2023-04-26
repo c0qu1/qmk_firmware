@@ -55,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //}
 
 // Use Big LED to show status
-bool led_update_user(led_t led_state) {
-    set_big_LED_r(led_state.caps_lock ? LED_ON : LED_OFF);
-    set_big_LED_g(led_state.num_lock ? LED_ON : LED_OFF);
-    set_big_LED_b(led_state.scroll_lock ? LED_ON : LED_OFF);
-    return true;
-}
+//bool led_update_user(led_t led_state) {
+//    set_big_LED_r(led_state.caps_lock ? LED_ON : LED_OFF);
+//    set_big_LED_g(led_state.num_lock ? LED_ON : LED_OFF);
+//    set_big_LED_b(led_state.scroll_lock ? LED_ON : LED_OFF);
+//    return true;
+//}
