@@ -23,3 +23,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ENCODERS_PAD_A { GP20, GP18 }
 #define ENCODERS_PAD_B { GP21, GP19 }
+
+/* Audio */
+//#define AUDIO_PIN GP16
+//#define AUDIO_PWM_DRIVER PWMD0
+//#define AUDIO_PWM_CHANNEL RP2040_PWM_CHANNEL_A
+//#define AUDIO_INIT_DELAY
+//#define AUDIO_CLICKY
