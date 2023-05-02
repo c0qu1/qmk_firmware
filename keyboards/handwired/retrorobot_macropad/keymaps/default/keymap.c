@@ -26,17 +26,17 @@ enum layer_names {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_0LAYER] = LAYOUT_only(
+    [_0LAYER] = LAYOUT(
         KC_Q,                      KC_P,
         KC_A,          KC_R, KC_S, KC_T,
         MO(1),         KC_X, KC_C, MO(2)
     ),
-    [_1LAYER] = LAYOUT_only(
+    [_1LAYER] = LAYOUT(
         KC_Q,                      KC_P,
         KC_A,          KC_R, KC_S, KC_T,
         KC_TRNS,         KC_X, KC_C, KC_TRNS
     ),
-    [_2LAYER] = LAYOUT_only(
+    [_2LAYER] = LAYOUT(
         KC_Q,                      KC_P,
         KC_A,          KC_R, KC_S, KC_T,
         KC_TRNS,         KC_X, KC_C, KC_TRNS
