@@ -21,9 +21,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        KC_Q,                      KC_MUTE,
+        KC_WWW_REFRESH,          KC_MUTE,
         KC_A,          KC_R, KC_S, KC_T,
-        TT(1),         KC_X, KC_C, TT(2)
+        TO(1),         KC_X, KC_C, TO(2)
     ),
     [1] = LAYOUT(
         KC_Q,                      KC_P,
@@ -33,12 +33,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [2] = LAYOUT(
         CK_TOGG,                 MU_TOGG,
         CK_RST,        KC_R, KC_S, KC_T,
-        KC_TRNS,       KC_X, KC_C, TO(0)
+        TO(3),         KC_X, KC_C, TO(0)
     ),
     [3] = LAYOUT(
-        KC_TRNS,                      KC_TRNS,
-        KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS,         KC_TRNS, KC_TRNS, KC_TRNS
+        KC_NO,                      KC_NO,
+        KC_NO,          KC_NO, KC_NO, KC_NO,
+        TO(0),          KC_NO, KC_NO, KC_NO
     )
 };
 
@@ -86,10 +86,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-    [0] =   { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  },
-    [1] =   { ENCODER_CCW_CW(RGB_HUD, RGB_HUI),           ENCODER_CCW_CW(RGB_SAD, RGB_SAI)  },
-    [2] =   { ENCODER_CCW_CW(CK_DOWN, CK_UP),             ENCODER_CCW_CW(MU_NEXT, MU_NEXT)  },
-    [3] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) }
+    [0] =   { ENCODER_CCW_CW(LCTL(KC_PGUP), LCTL(KC_PGDN)), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  },
+    [1] =   { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),   ENCODER_CCW_CW(RGB_SAD, RGB_SAI)  },
+    [2] =   { ENCODER_CCW_CW(CK_DOWN, CK_UP),               ENCODER_CCW_CW(MU_NEXT, MU_NEXT)  },
+    [3] =   { ENCODER_CCW_CW(KC_NO, KC_NO),                 ENCODER_CCW_CW(KC_NO, KC_NO) }
     //                  Encoder 1                                     Encoder 2
 };
 #endif
