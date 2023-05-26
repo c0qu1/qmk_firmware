@@ -24,6 +24,13 @@
             ]
         }
     ],
+    "customKeycodes": [
+        {
+            "name": "Big RGB LED Toggle",
+            "title": "Button will enable and/or disable the big LED RGB",
+            "shortName": "BigLEDTogg"
+        }
+    ],
     "matrix": { "rows": 3, "cols": 4 },
     "layouts": {
         "keymap": [
