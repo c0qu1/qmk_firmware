@@ -27,8 +27,10 @@ float layer3_song[][2] = SONG(MARIO_MUSHROOM);
 #endif
 
 enum custom_keycodes {
-  PLAY_AUDIO = SAFE_RANGE,
+  BIG_LED_TOGG = QK_KB,
 };
+
+bool big_led_toggle_state = true;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
@@ -47,57 +49,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TO(3),         KC_X, KC_C, TO(0)
     ),
     [3] = LAYOUT(
-        KC_NO,                      QK_BOOT,
+        BIG_LED_TOGG,               QK_BOOT,
         KC_NO,          KC_NO, KC_NO, KC_NO,
         TO(0),          KC_NO, KC_NO, KC_NO
     )
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    if (get_highest_layer(state) == 1) {
+    if (get_highest_layer(state) == 1 && big_led_toggle_state == true) {
         set_big_LED_rgb(LED_ON, LED_OFF, LED_OFF);
         PLAY_SONG(layer1_song);
-    } else if (get_highest_layer(state) == 2) {
+    } else if (get_highest_layer(state) == 2 && big_led_toggle_state == true) {
         set_big_LED_rgb(LED_OFF, LED_ON, LED_OFF);
         PLAY_SONG(layer2_song);
-    } else if (get_highest_layer(state) == 3) {
+    } else if (get_highest_layer(state) == 3 && big_led_toggle_state == true) {
         set_big_LED_rgb(LED_ON, LED_OFF, LED_ON);
         PLAY_SONG(layer3_song);
-    } else {
+    } else if(get_highest_layer(state) == 0 && big_led_toggle_state == true) {
         set_big_LED_rgb(LED_OFF, LED_OFF, LED_ON);
         //PLAY_SONG(layer0_song);
+    } else if(big_led_toggle_state == false) {
+        set_big_LED_rgb(LED_OFF, LED_OFF, LED_OFF);
     }
     return state;
 }
 
-//bool encoder_update_user(uint8_t index, bool clockwise) {
-//    switch (biton32(layer_state))
-//    {
-//        case _0LAYER:
-//            if (index == 0) { /* First encoder */
-//                clockwise ? tap_code(KC_VOLU) : tap_code(KC_VOLD);
-//            } else if (index == 1) { /* Second encoder */
-//                register_code(KC_LCTL);
-//                clockwise ? tap_code(KC_D) : tap_code(KC_U);
-//                unregister_code(KC_LCTL);
-//            }
-//            break;
-//        case _1LAYER:
-//            //nothing
-//            break;
-//        case _2LAYER:
-//            //nothing
-//            break;
-//        case _VIA3:
-//            if (index == 0) { /* First encoder */
-//                change_RGB(clockwise);
-//            } else if (index == 1) { /* Second encoder */
-//                clockwise ? tap_code16(CK_UP) : tap_code16(CK_DOWN);
-//            }
-//            break;
-//    }
-//    return false;
-//}
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case BIG_LED_TOGG: //custom keycode
+      if (record->event.pressed) {
+        big_led_toggle_state = !big_led_toggle_state;
+      }
+    break;
+  }
+return true;
+}
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
