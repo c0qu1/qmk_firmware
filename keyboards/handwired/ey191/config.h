@@ -12,8 +12,8 @@
 //#define DESCRIPTION  Handwired 65% Keyboard with top row containing 6 macro keys, 2 Rotary Encoders and 3 RGB Indicators
 
 /* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 16
+//#define MATRIX_ROWS 6
+//#define MATRIX_COLS 16
 
 /*
  * Keyboard Matrix Assignments
@@ -25,9 +25,9 @@
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { A9, B9, B0, A8, A7, A6 }
-#define MATRIX_COL_PINS { A10, B7, B6, B5, B4, B3, B2, B1, A13, A14, B12, B11, B10, B15, B14, B13 }
-#define UNUSED_PINS
+//#define MATRIX_ROW_PINS { A9, B9, B0, A8, A7, A6 }
+//#define MATRIX_COL_PINS { A10, B7, B6, B5, B4, B3, B2, B1, A13, A14, B12, B11, B10, B15, B14, B13 }
+//#define UNUSED_PINS
 /* | Rows  | C0    | C1    | C2    | C3    | C4    | C5    | C6    | C7    | C8    | C9    | C10   | C11   | C12   | C13   | C14   | C15   | Pins  |
  * | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
  * | R0    | F11   | F12   | F13   | F14   | F15   |       |       |       |       |       |       | F16   |       |       | F17   | F18   | A9    |
@@ -41,7 +41,7 @@
 
 
 /* COL2ROW, ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+//#define DIODE_DIRECTION COL2ROW
 
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
