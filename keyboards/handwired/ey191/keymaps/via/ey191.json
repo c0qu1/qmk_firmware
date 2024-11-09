@@ -2,29 +2,68 @@
     "name": "EY191",
     "vendorId": "0x6330",
     "productId": "0x0469",
-    "lighting": "qmk_rgblight",
+    "menus": [
+        "qmk_audio",
+        "qmk_rgblight"
+    ],
+    "customKeycodes": [
+        {
+            "name": "Imperial March Song",
+            "title": "From Star Wars movie",
+            "shortName": "ImperialMarch"
+        },
+        {
+            "name": "Zelda Treasure Song",
+            "title": "Link opens a treasure chest",
+            "shortName": "ZeldaTreasure"
+        },
+        {
+            "name": "Zelda Puzzle Song",
+            "title": "From The Legend of Zelda NES game",
+            "shortName": "ZeldaPuzzle"
+        },
+        {
+            "name": "OneUp Sound",
+            "title": "From Super Mario Bros NES game",
+            "shortName": "OneUp"
+        },
+        {
+            "name": "Coin Sound",
+            "title": "From Super Mario Bros NES game",
+            "shortName": "Coin"
+        },
+        {
+            "name": "Mario Mushroom",
+            "title": "Mario grows into Super Mario",
+            "shortName": "Shroom"
+        },
+        {
+            "name": "Super Mario Bros Song",
+            "title": "From Super Mario Bros NES game",
+            "shortName": "MarioSong"
+        }
+    ],
     "matrix": { "rows": 6, "cols": 16 },
     "layouts": {
         "keymap": [
             [
-                {"c": "#cccccc"},
                 "0,0",
                 "0,1",
                 "0,2",
                 "0,3",
-                {"c": "#aaaaaa"},
+                {"c":"#aaaaaa"},
                 "0,4",
-                {"x": 6.5, "c": "#cccccc", "a": 6},
-                "0,11",
-                {"x": 1, "a": 4},
-                "0,14",
-                {"x": 0.5, "c": "#aaaaaa"},
+                {"x":6.5,"c":"#cccccc"},
+                "0,11\n\n\n\n\n\n\n\n\ne0",
+                {"x":1},
+                "0,14\n\n\n\n\n\n\n\n\ne1",
+                {"x":0.5,"c":"#aaaaaa"},
                 "0,15"
             ],
             [
-                {"y": 1, "c": "#777777"},
+                {"y":1,"c":"#777777"},
                 "1,0",
-                {"c": "#cccccc"},
+                {"c":"#cccccc"},
                 "1,1",
                 "1,2",
                 "1,3",
@@ -37,14 +76,14 @@
                 "1,10",
                 "1,11",
                 "1,12",
-                {"c": "#aaaaaa", "a": 6, "w": 2},
+                {"c":"#aaaaaa","w":2},
                 "1,14",
                 "1,15"
             ],
             [
-                {"a": 4, "w": 1.5},
+                {"w":1.5},
                 "2,0",
-                {"c": "#cccccc"},
+                {"c":"#cccccc"},
                 "2,2",
                 "2,3",
                 "2,4",
@@ -57,15 +96,15 @@
                 "2,11",
                 "2,12",
                 "2,13",
-                {"w": 1.5},
+                {"w":1.5},
                 "2,14",
-                {"c": "#aaaaaa", "a": 6},
+                {"c":"#aaaaaa"},
                 "2,15"
             ],
             [
-                {"a": 4, "w": 1.75},
+                {"w":1.75},
                 "3,0",
-                {"c": "#cccccc"},
+                {"c":"#cccccc"},
                 "3,2",
                 "3,3",
                 "3,4",
@@ -77,15 +116,15 @@
                 "3,10",
                 "3,11",
                 "3,12",
-                {"c": "#777777", "a": 6, "w": 2.25},
+                {"c":"#777777","w":2.25},
                 "3,13",
-                {"c": "#aaaaaa"},
+                {"c":"#aaaaaa"},
                 "3,15"
             ],
             [
-                {"w": 2.25},
+                {"w":2.25},
                 "4,1",
-                {"c": "#cccccc", "a": 4},
+                {"c":"#cccccc"},
                 "4,2",
                 "4,3",
                 "4,4",
@@ -96,27 +135,27 @@
                 "4,9",
                 "4,10",
                 "4,11",
-                {"c": "#aaaaaa", "a": 6, "w": 1.75},
+                {"c":"#aaaaaa","w":1.75},
                 "4,13",
-                {"c": "#777777", "a": 7},
+                {"c":"#777777"},
                 "4,14",
-                {"c": "#aaaaaa", "a": 6},
+                {"c":"#aaaaaa"},
                 "4,15"
             ],
             [
-                {"w": 1.25},
+                {"w":1.25},
                 "5,0",
-                {"w": 1.25},
+                {"w":1.25},
                 "5,1",
-                {"w": 1.25},
+                {"w":1.25},
                 "5,3",
-                {"c": "#cccccc", "a": 7, "w": 6.25},
+                {"c":"#cccccc","w":6.25},
                 "5,6",
-                {"c": "#aaaaaa", "a": 6},
+                {"c":"#aaaaaa"},
                 "5,10",
                 "5,11",
                 "5,12",
-                {"c": "#777777", "a": 7},
+                {"c":"#777777"},
                 "5,13",
                 "5,14",
                 "5,15"

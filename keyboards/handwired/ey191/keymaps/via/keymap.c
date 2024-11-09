@@ -3,6 +3,26 @@
 
 #include QMK_KEYBOARD_H
 
+#ifdef AUDIO_ENABLE
+float layer0_song[][2] = SONG(IMPERIAL_MARCH);
+float layer1_song[][2] = SONG(ZELDA_TREASURE);
+float layer2_song[][2] = SONG(ZELDA_PUZZLE);
+float layer3_song[][2] = SONG(ONE_UP_SOUND);
+float layer4_song[][2] = SONG(COIN_SOUND);
+float layer5_song[][2] = SONG(MARIO_MUSHROOM);
+float layer6_song[][2] = SONG(MARIO_THEME);
+#endif
+
+enum custom_keycodes {
+  IMP_MARCH = QK_KB,
+  ZELDA_TRSR,
+  ZELDA_PZZLE,
+  ONE_UP,
+  COIN,
+  MUSHROOM,
+  MARIO
+};
+
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
   _BASE,
@@ -42,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
      [_VIA3] = LAYOUT_ansi65x(
        _______, _______, _______, _______, _______,                                                       RGB_TOG,                   CK_TOGG, MU_TOGG,
-       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          CK_RST,  MU_NEXT,
+       _______, IMP_MARCH, ZELDA_TRSR, ZELDA_PZZLE, ONE_UP, COIN, MUSHROOM, MARIO, _______, _______, _______, _______, _______,          CK_RST,  MU_NEXT,
        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AU_TOGG,
        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______, _______,
@@ -94,6 +114,47 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(2, layer_state_cmp(state, _VIA2));
     rgblight_set_layer_state(3, layer_state_cmp(state, _VIA3));
     return state;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case IMP_MARCH: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer0_song);
+      }
+      break;
+    case ZELDA_TRSR: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer1_song);
+      }
+      break;
+    case ZELDA_PZZLE: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer2_song);
+      }
+      break;
+    case ONE_UP: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer3_song);
+      }
+      break;
+    case COIN: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer4_song);
+      }
+      break;
+    case MUSHROOM: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer5_song);
+      }
+      break;
+    case MARIO: //custom keycode
+      if (record->event.pressed) {
+        PLAY_SONG(layer6_song);
+      }
+      break;
+  }
+  return true;
 }
 
 #if defined(ENCODER_MAP_ENABLE)
