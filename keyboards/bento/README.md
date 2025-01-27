@@ -1,8 +1,7 @@
 # Bento Macropad Milkshake Edition with VIA
 
 
-![Bento](https://i.imgur.com/csn46mNl.jpg)
-
+![Bento Macropad Milkshake](docs/images/Bento%20Macropad%20Milkshake.jpg)
 
 The Bento Macropad is a 5-key macropad with rotary encoder designed by Dwin17 (Discord: **Dwin#3766**, Reddit: **nguyedt**) with PCB designed by coarse (keyboard.coarse.tech). 
 
