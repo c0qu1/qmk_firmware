@@ -1,0 +1,85 @@
+{
+    "keyboard_name": "bento",
+    "manufacturer": "unknown",
+    "url": "https://github.com/c0qu1/qmk_firmware.git",
+    "maintainer": "c0qu1",
+    "usb": {
+        "vid": "0x6E67",
+        "pid": "0x2133",
+        "device_version": "1.0.0"
+    },
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": false,
+        "nkro": false,
+        "rgblight": false
+    },
+    "encoder": {
+        "rotary": [
+            {"pin_a": "D1", "pin_b": "F5"}
+        ]
+    },
+    "qmk": {
+        "locking": {
+            "enabled": true,
+            "resync": true
+        }
+    },
+    "matrix_pins": {
+        "direct": [
+            ["D2", "D4", "F4"],
+            ["D7", "B1", "B3"]
+        ]
+    },
+    "audio": {
+        "pins": ["C6"],
+        "default": {
+            "on": true,
+            "clicky": true
+        }
+    },
+    "qmk_lufa_bootloader": {
+        "esc_input": "D5",
+        "esc_output": "F1",
+        "led": "B0",
+        "speaker": "C6"
+    },
+    "backlight": {
+        "pin": "B6",
+        "levels": 7
+    },
+    "ws2812": {
+        "pin": "D3"
+    },
+    "rgblight": {
+        "led_count": 3,
+        "sleep": true,
+        "animations": {
+            "twinkle": true,
+            "knight": true,
+            "snake": false
+        },
+        "layers": {
+            "max": 5,
+            "enabled": true
+        }
+    },
+    "processor": "atmega32u4",
+    "bootloader": "qmk-dfu",
+    "debounce": 10,
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                { "matrix": [0, 0], "x":0, "y":0},
+                { "matrix": [0, 1], "x":1, "y":0},
+                { "matrix": [0, 2], "x":2, "y":0},
+                { "matrix": [1, 0], "x":0, "y":1},
+                { "matrix": [1, 1], "x":1, "y":1},
+                { "matrix": [1, 2], "x":2, "y":1}
+            ]
+        }
+    }
+}

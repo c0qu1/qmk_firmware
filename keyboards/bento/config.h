@@ -15,51 +15,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define QMK_ESC_OUTPUT F1 // usually COL
-#define QMK_ESC_INPUT D5 // usually ROW
-#define QMK_LED B0
-#define QMK_SPEAKER C6
-#define AUDIO_PIN C6
+//#define AUDIO_PIN C6
+//#define ENCODER_DIRECTION_FLIP
 
-/* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
-
-/* Keyboard Matrix Assignments */
-#define DIRECT_PINS { \
-    { D2, D4, F4 }, \
-    { D7, B1, B3 } \
-}
-
-/* Handwired Pin Layout:
-
-    { D7, B1, D2 }, \
-    { E6, B4, B2 } \
-*/
-
-#define ENCODERS_PAD_A {D1}
-#define ENCODERS_PAD_B {F5}
-#define ENCODER_DIRECTION_FLIP
-
-#define BACKLIGHT_PIN B6
-#define BACKLIGHT_LEVELS 7
-
-#define  WS2812_DI_PIN D3
-#ifdef  WS2812_DI_PIN
-  #define RGBLED_NUM 11
-  #define RGBLIGHT_HUE_STEP 8
-  #define RGBLIGHT_SAT_STEP 8
-  #define RGBLIGHT_VAL_STEP 8
-  #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
-  #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
-  /*== all animations enable ==*/
-  //#define RGBLIGHT_ANIMATIONS
-#endif
+//
+//#define  WS2812_DI_PIN D3
+//#ifdef  WS2812_DI_PIN
+////  #undef RGBLED_NUM
+////  #define RGBLED_NUM 3
+//  #define RGBLIGHT_HUE_STEP 8
+//  #define RGBLIGHT_SAT_STEP 8
+//  #define RGBLIGHT_VAL_STEP 8
+//  #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+//  #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
+//  /*== all animations enable ==*/
+//  //#define RGBLIGHT_ANIMATIONS
+//#endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+//#define DEBOUNCE 5

@@ -15,41 +15,39 @@
  */
 #include QMK_KEYBOARD_H
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /*
-        |                  |              | Knob : Vol Up/Dn  |
-        |  Toggle Layer 1  |   Browser Search    |    Press: Mute    |
-        |  Browser Back    |   Browser Refresh   |   Browser Forward |
-     */
-    [0] = LAYOUT(
-        MO(1), KC_WSCH, KC_MUTE,
-        KC_WBAK , KC_WREF  , KC_WFWD
-    ),
-    /*
-        |               |                        | Knob : Page Up/Dn |
-        |               |   Increase Brightness  |     Toggle RGB    |
-        |    RGB Cycle  |   Increase Brightness  |  Hue Cycle        |
-     */
-    [1] = LAYOUT(
-        _______  , KC_RSFT, RESET,
-        RGB_MOD, RGB_VAI, RGB_HUI
-    ),
-
+enum custom_keycodes {
+  CYCLE_LAYERS = QK_KB,
 };
 
-void encoder_update_user(uint8_t index, bool clockwise) {
-    if (layer_state_is(0)) {
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
-    else if (layer_state_is(1)) {
-        if (clockwise) {
-            tap_code(KC_UP);
-        } else {
-            tap_code(KC_DOWN);
-        }
-    }
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = LAYOUT(
+        KC_MAIL, KC_MPLY, KC_MUTE,
+        KC_MPRV, KC_MNXT, CYCLE_LAYERS
+    ),
+    [1] = LAYOUT(
+        KC_WBAK, KC_WFWD, KC_WSTP,
+        S(C(KC_TAB)), C(KC_TAB), CYCLE_LAYERS
+    ),
+};
+
+#if defined(ENCODER_MAP_ENABLE)
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+    [0] =   { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)             },
+    [1] =   { ENCODER_CCW_CW(LCTL(KC_PGUP), LCTL(KC_PGDN)) }
+};
+#endif
+
+uint8_t selected_layer = 0;
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch(keycode) {
+    case CYCLE_LAYERS: //custom keycode
+      if (record->event.pressed) {
+        selected_layer++;
+        if(selected_layer > 3) { selected_layer = 0;}
+        layer_clear();
+        layer_on(selected_layer);
+      }
+    break;
+  }
+return true;
 }
