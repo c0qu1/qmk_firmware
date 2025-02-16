@@ -8,6 +8,7 @@
 * Keyboard Maintainer: [Juan Rivera](https://github.com/c0qu1)
 * Hardware Supported: *No PCB since it is handwired, it uses the Proton-C microcontroller*
 * Hardware Availability: *https://olkb.com/products/qmk-proton-c-rev-2*
+* [How-to-make-it](docs%2Fhow-to-make-it.md)
 
 Make example for this keyboard (after setting up your build environment):
 
