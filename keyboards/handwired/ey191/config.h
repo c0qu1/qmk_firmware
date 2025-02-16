@@ -58,15 +58,15 @@
 //#define BACKLIGHT_LEVELS 3
 //#define BACKLIGHT_BREATHING
 
-#define WS2812_DI_PIN A2
+//#define WS2812_DI_PIN A2
 #ifdef WS2812_DI_PIN
-#define RGBLED_NUM 3
-#define RGBLIGHT_LED_MAP { 2, 1, 0 }
+//#define RGBLED_NUM 3
+//#define RGBLIGHT_LED_MAP { 2, 1, 0 }
 //#    define RGBLIGHT_HUE_STEP 8
 //#    define RGBLIGHT_SAT_STEP 8
 //#    define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 64 /* The maximum brightness level */
-#define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
+//#define RGBLIGHT_LIMIT_VAL 64 /* The maximum brightness level */
+//#define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 /*== all animations enable ==*/
 //#define RGBLIGHT_ANIMATIONS
 /*== or choose animations ==*/
@@ -85,13 +85,13 @@
 /*==== use exp() and sin() ====*/
 //#    define RGBLIGHT_EFFECT_BREATHE_CENTER 1.85  // 1 to 2.7
 //#    define RGBLIGHT_EFFECT_BREATHE_MAX    255   // 0 to 255
-#define RGBLIGHT_LAYERS
+//#define RGBLIGHT_LAYERS
 #define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF
 #define RGBLIGHT_LAYERS_RETAIN_VAL
 #endif
 
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
+//#define DEBOUNCE 5
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 //#define MATRIX_HAS_GHOST
@@ -152,17 +152,17 @@
 //#define BOOTMAGIC_LITE_COLUMN 0
 
 /* Audio output configuration */
-#define QMK_SPEAKER A5
-#define AUDIO_PIN A5
-#define AUDIO_PIN_ALT A4
+//#define QMK_SPEAKER A5
+//#define AUDIO_PIN A5
+//#define AUDIO_PIN_ALT A4
 #define AUDIO_PIN_ALT_AS_NEGATIVE
 //#define AUDIO_DAC_SAMPLE_MAX 4095U // Value to adjust the volume of DAC
 /* https://docs.qmk.fm/#/feature_audio?id=audio-click */
-#define AUDIO_CLICKY
+//#define AUDIO_CLICKY
 
 /* Rotary Encoder https://docs.qmk.fm/#/feature_encoders?id=encoders */
-#define ENCODERS_PAD_A { A1, A0 }
-#define ENCODERS_PAD_B { B8, B8 }
+//#define ENCODERS_PAD_A { A1, A0 }
+//#define ENCODERS_PAD_B { B8, B8 }
 #define ENCODER_DIRECTION_FLIP
 //#define ENCODER_RESOLUTIONS { 4, 2 }
 

@@ -20,3 +20,4 @@ AUDIO_ENABLE = yes           # Audio output
 AUDIO_DRIVER = dac_basic
 ENCODER_ENABLE = yes        # Use rotary encoder
 FAUXCLICKY_ENABLE = yes      # Use buzzer to emulate clicky switches
+ENCODER_MAP_ENABLE = yes
