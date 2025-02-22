@@ -152,11 +152,11 @@
 //#define BOOTMAGIC_LITE_COLUMN 0
 
 /* Audio output configuration */
-//#define QMK_SPEAKER A5
-//#define AUDIO_PIN A5
-//#define AUDIO_PIN_ALT A4
+#define QMK_SPEAKER A5
+#define AUDIO_PIN A5
+#define AUDIO_PIN_ALT A4
 #define AUDIO_PIN_ALT_AS_NEGATIVE
-//#define AUDIO_DAC_SAMPLE_MAX 4095U // Value to adjust the volume of DAC
+#define AUDIO_DAC_SAMPLE_MAX 4095U // Value to adjust the volume of DAC
 /* https://docs.qmk.fm/#/feature_audio?id=audio-click */
 //#define AUDIO_CLICKY
 
