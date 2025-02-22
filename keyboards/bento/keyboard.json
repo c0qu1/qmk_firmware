@@ -69,7 +69,7 @@
     },
     "processor": "atmega32u4",
     "bootloader": "qmk-dfu",
-    "debounce": 10,
+    "debounce": 5,
     "layouts": {
         "LAYOUT": {
             "layout": [
