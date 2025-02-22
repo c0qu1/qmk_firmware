@@ -21,8 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 200U // Timeout window in ms in which the double tap can occur.
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP7 // Specify a optional status led by GPIO number which blinks when entering the bootloader
 
-#define ENCODERS_PAD_A { GP20, GP18 }
-#define ENCODERS_PAD_B { GP21, GP19 }
+//#define ENCODERS_PAD_A { GP20, GP18 }
+//#define ENCODERS_PAD_B { GP21, GP19 }
 
 /* Audio */
 #define AUDIO_PIN GP16
