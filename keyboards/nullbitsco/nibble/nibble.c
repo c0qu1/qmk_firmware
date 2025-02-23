@@ -15,7 +15,10 @@
  */
 #include "nibble.h"
 
-// Use Bit-C LED to show CAPS LOCK status
+// Use Bit-C LED or Big LED to show CAPS LOCK status
 void led_update_ports(led_t led_state) {
+    // set_big_LED_r(led_state.caps_lock ? LED_ON : LED_OFF);
+    //set_big_LED_g(led_state.caps_lock ? LED_ON : LED_OFF);
+    // set_big_LED_b(led_state.caps_lock ? LED_ON : LED_OFF);
     set_bitc_LED(led_state.caps_lock ? LED_DIM : LED_OFF);
 }

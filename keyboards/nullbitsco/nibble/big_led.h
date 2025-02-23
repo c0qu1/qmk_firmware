@@ -29,7 +29,9 @@
 //#define GPIO_STATE_LOW  0
 //#define GPIO_STATE_HIGH 1
 //Inverted for common anode LED
+#undef GPIO_STATE_LOW
 #define GPIO_STATE_LOW  1
+#undef GPIO_STATE_HIGH
 #define GPIO_STATE_HIGH 0
 
 void
