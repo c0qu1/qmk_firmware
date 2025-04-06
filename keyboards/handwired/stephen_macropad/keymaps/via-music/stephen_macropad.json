@@ -25,6 +25,11 @@
         }
     ],
     "customKeycodes": [
+        {
+            "name": "Cycle Layers",
+            "title": "Button will increase active layer sequentially returning back to first layer",
+            "shortName": "CycleLayers++"
+        }
     ],
     "matrix": { "rows": 1, "cols": 6 },
     "layouts": {
