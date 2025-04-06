@@ -1,0 +1,6 @@
+VIA_ENABLE = yes
+ENCODER_MAP_ENABLE = yes
+AUDIO_ENABLE = yes
+AUDIO_DRIVER = pwm_hardware
+RGBLIGHT_ENABLE = yes
+WS2812_DRIVER = vendor

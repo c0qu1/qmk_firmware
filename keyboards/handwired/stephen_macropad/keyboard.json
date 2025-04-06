@@ -1,0 +1,79 @@
+{
+    "keyboard_name": "stephen_macropad",
+    "manufacturer": "c0qu1",
+    "url": "https://github.com/c0qu1/qmk_firmware.git",
+    "maintainer": "c0qu1",
+    "usb": {
+        "device_version": "0.0.1",
+        "pid": "0x0471",
+        "vid": "0x6330"
+    },
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true
+    },
+    "encoder": {
+        "rotary": [
+            {"pin_a": "GP9", "pin_b": "GP10"},
+            {"pin_a": "GP11", "pin_b": "GP12"}
+        ]
+    },
+    "qmk": {
+        "locking": {
+            "enabled": true,
+            "resync": true
+        }
+    },
+    "diode_direction": "ROW2COL",
+    "matrix_pins": {
+        "cols": ["GP8", "GP7", "GP26", "GP22", "GP19", "GP18"],
+        "rows": ["GP15"]
+    },
+    "audio": {
+        "pins": ["GP16"],
+        "default": {
+            "on": true,
+            "clicky": true
+        }
+    },
+    "ws2812": {
+        "pin": "GP21"
+    },
+    "rgblight": {
+        "led_count": 7,
+        "sleep": true,
+        "animations": {
+            "twinkle": true,
+            "knight": true
+        },
+        "layers": {
+            "max": 4,
+            "enabled": true
+        },
+        "max_brightness": 128,
+        "led_map": [6,5,4,3,2,1,0]
+    },
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "debounce": 5,
+    "bootmagic": {
+        "matrix": [0, 0]
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                { "matrix": [0, 0], "x": 0, "y": 0 },
+                { "matrix": [0, 1], "x": 4, "y": 0 },
+
+                { "matrix": [0, 2], "x": 0, "y": 1 },
+                { "matrix": [0, 3], "x": 1, "y": 1 },
+                { "matrix": [0, 4], "x": 2, "y": 1 },
+                { "matrix": [0, 5], "x": 4, "y": 1 }
+            ]
+        }
+    }
+}
