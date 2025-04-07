@@ -63,7 +63,7 @@ const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
 );
 // Light LED 3 in red when keyboard layer 3 is active
 const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 0, HSV_RED}
+    {0, 1, HSV_RED}
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -89,6 +89,7 @@ bool led_update_user(led_t led_state) {
 //}
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, 0));
     rgblight_set_layer_state(1, layer_state_cmp(state, 1));
     rgblight_set_layer_state(2, layer_state_cmp(state, 2));
     rgblight_set_layer_state(3, layer_state_cmp(state, 3));
@@ -98,7 +99,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         PLAY_SONG(layer2_song);
     } else if (get_highest_layer(state) == 3) {
         PLAY_SONG(layer3_song);
-    } else {
+    } else if (get_highest_layer(state) == 0) {
         PLAY_SONG(layer0_song);
     }
     return state;

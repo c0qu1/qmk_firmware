@@ -47,8 +47,14 @@
         "led_count": 7,
         "sleep": true,
         "animations": {
+            "static_light": true,
+            "breathing": true,
             "twinkle": true,
-            "knight": true
+            "rainbow_mood": true,
+            "rainbow_swirl": true,
+            "alternating": true,
+            "knight": true,
+            "static_gradient": true
         },
         "layers": {
             "max": 4,
@@ -66,13 +72,13 @@
     "layouts": {
         "LAYOUT": {
             "layout": [
-                { "matrix": [0, 0], "x": 0, "y": 0 },
-                { "matrix": [0, 1], "x": 4, "y": 0 },
+                { "matrix": [0, 1], "x": 0, "y": 0 },
+                { "matrix": [0, 0], "x": 4, "y": 0 },
 
-                { "matrix": [0, 2], "x": 0, "y": 1 },
-                { "matrix": [0, 3], "x": 1, "y": 1 },
-                { "matrix": [0, 4], "x": 2, "y": 1 },
-                { "matrix": [0, 5], "x": 4, "y": 1 }
+                { "matrix": [0, 5], "x": 0, "y": 1 },
+                { "matrix": [0, 4], "x": 1, "y": 1 },
+                { "matrix": [0, 3], "x": 2, "y": 1 },
+                { "matrix": [0, 2], "x": 4, "y": 1 }
             ]
         }
     }

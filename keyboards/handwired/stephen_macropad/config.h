@@ -30,3 +30,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define AUDIO_PWM_CHANNEL RP2040_PWM_CHANNEL_A
 #define AUDIO_INIT_DELAY
 #define AUDIO_CLICKY
+
+#define RGBLIGHT_LAYERS
