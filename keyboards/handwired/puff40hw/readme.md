@@ -1,12 +1,13 @@
-# puff40hw
+# puff40hw Handwired QMK keyboard
 
-![puff40hw](imgur.com image replace me!)
+![puff40hw](docs/IMG_2979.JPG)
 
 *A short description of the keyboard/project*
 
 * Keyboard Maintainer: [c0qu1](https://github.com/c0qu1)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: [Sea-Picro](https://github.com/joshajohnson/sea-picro#readme)
+* Hardware Availability: [Aliexpress](https://www.aliexpress.us/w/wholesale-puff40.html?spm=a2g0o.home.search.0)
+* [More pictures](docs/more_pics.md)
 
 Make example for this keyboard (after setting up your build environment):
 
