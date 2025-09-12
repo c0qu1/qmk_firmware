@@ -11,5 +11,5 @@
 ![puff40hw](IMG_2978.JPG)
 ![via](via.png)
 ![puff40hw](IMG_9103.jpeg)
-![puff40hw](IMG_2981.png)
+![puff40hw](IMG_2981.PNG)
 ![puff40hw](IMG_2977.JPG)
