@@ -2,7 +2,7 @@
 
 ![puff40hw](docs/IMG_2979.JPG)
 
-*A short description of the keyboard/project*
+*I bought the switch tester from AliExpress since it looks cool and I could use it as a fidget toy on my desk to have different switches. Then the idea to handwired another keyboard got into my head. Also my little daughters kept asking me to connect it to the computer to use it. Long story short, here it is... something less than a 40% but 100% cool and fun!!*
 
 * Keyboard Maintainer: [c0qu1](https://github.com/c0qu1)
 * Hardware Supported: [Sea-Picro](https://github.com/joshajohnson/sea-picro#readme)
