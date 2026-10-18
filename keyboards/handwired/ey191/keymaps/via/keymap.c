@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      ),
 
      [_VIA3] = LAYOUT_ansi65x(
-       _______, _______, _______, _______, _______,                                                       RGB_TOG,                   CK_TOGG, MU_TOGG,
+       _______, _______, _______, _______, _______,                                                       UG_TOGG,                   CK_TOGG, MU_TOGG,
        _______, IMP_MARCH, ZELDA_TRSR, ZELDA_PZZLE, ONE_UP, COIN, MUSHROOM, MARIO, _______, _______, _______, _______, _______,          CK_RST,  MU_NEXT,
        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AU_TOGG,
        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
@@ -160,7 +160,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_BASE] =   { ENCODER_CCW_CW(LCTL(KC_PGUP), LCTL(KC_PGDN)), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)  },
-    [_VIA1] =   { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN),   ENCODER_CCW_CW(RGB_SAD, RGB_SAI)  },
+    [_VIA1] =   { ENCODER_CCW_CW(MS_WHLU, MS_WHLD),   ENCODER_CCW_CW(UG_SATD, UG_SATU)  },
     [_VIA2] =   { ENCODER_CCW_CW(CK_DOWN, CK_UP),               ENCODER_CCW_CW(MU_NEXT, MU_NEXT)  },
     [_VIA3] =   { ENCODER_CCW_CW(KC_NO, KC_NO),                 ENCODER_CCW_CW(KC_NO, KC_NO) }
     //                  Encoder 1                                     Encoder 2
